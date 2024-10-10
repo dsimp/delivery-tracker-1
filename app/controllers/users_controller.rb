@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def create
     the_user = User.new
-    the_user.name = params.fetch("query_name")
     the_user.email = params.fetch("query_email")
     the_user.password = params.fetch("query_password")
 
@@ -35,7 +34,6 @@ class UsersController < ApplicationController
     the_id = params.fetch("path_id")
     the_user = User.where({ :id => the_id }).at(0)
 
-    the_user.name = params.fetch("query_name")
     the_user.email = params.fetch("query_email")
     the_user.password = params.fetch("query_password")
 

@@ -20,13 +20,6 @@
 
     <dl>
       <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_user.name %>
-      </dd>
-
-      <dt>
         Email
       </dt>
       <dd>
@@ -67,14 +60,6 @@
     </h2>
 
     <form action="/modify_user/<%= @the_user.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_user.name %>">
-      </div>
-
       <div>
         <label for="email_box">
           Email

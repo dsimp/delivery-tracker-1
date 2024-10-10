@@ -20,6 +20,13 @@
 
     <dl>
       <dt>
+        Supposed to arrive on
+      </dt>
+      <dd>
+        <%= @the_delivery.supposed_to_arrive_on %>
+      </dd>
+
+      <dt>
         Description
       </dt>
       <dd>
@@ -34,10 +41,10 @@
       </dd>
 
       <dt>
-        Detail
+        Details
       </dt>
       <dd>
-        <%= @the_delivery.detail %>
+        <%= @the_delivery.details %>
       </dd>
 
       <dt>
@@ -45,6 +52,13 @@
       </dt>
       <dd>
         <%= @the_delivery.user_id %>
+      </dd>
+
+      <dt>
+        Arrived
+      </dt>
+      <dd>
+        <%= @the_delivery.arrived %>
       </dd>
 
       <dt>
@@ -75,6 +89,14 @@
 
     <form action="/modify_delivery/<%= @the_delivery.id %>"  method="post" >
       <div>
+        <label for="supposed_to_arrive_on_box">
+          Supposed to arrive on
+        </label>
+
+        <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on" value="<%= @the_delivery.supposed_to_arrive_on %>">
+      </div>
+
+      <div>
         <label for="description_box">
           Description
         </label>
@@ -91,11 +113,11 @@
       </div>
 
       <div>
-        <label for="detail_box">
-          Detail
+        <label for="details_box">
+          Details
         </label>
 
-        <input type="text" id="detail_box" name="query_detail" value="<%= @the_delivery.detail %>">
+        <input type="text" id="details_box" name="query_details" value="<%= @the_delivery.details %>">
       </div>
 
       <div>
@@ -104,6 +126,14 @@
         </label>
 
         <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_delivery.user_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="arrived_box" name="query_arrived" value="1" <%= "checked" if @the_delivery.arrived %>>
+
+        <label for="arrived_box">
+            Arrived
+        </label>
       </div>
 
       <button>

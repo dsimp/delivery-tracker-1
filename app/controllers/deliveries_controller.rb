@@ -19,10 +19,12 @@ class DeliveriesController < ApplicationController
 
   def create
     the_delivery = Delivery.new
+    the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
     the_delivery.description = params.fetch("query_description")
     the_delivery.arrival_date = params.fetch("query_arrival_date")
-    the_delivery.detail = params.fetch("query_detail")
+    the_delivery.details = params.fetch("query_details")
     the_delivery.user_id = params.fetch("query_user_id")
+    the_delivery.arrived = params.fetch("query_arrived", false)
 
     if the_delivery.valid?
       the_delivery.save
@@ -36,10 +38,12 @@ class DeliveriesController < ApplicationController
     the_id = params.fetch("path_id")
     the_delivery = Delivery.where({ :id => the_id }).at(0)
 
+    the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
     the_delivery.description = params.fetch("query_description")
     the_delivery.arrival_date = params.fetch("query_arrival_date")
-    the_delivery.detail = params.fetch("query_detail")
+    the_delivery.details = params.fetch("query_details")
     the_delivery.user_id = params.fetch("query_user_id")
+    the_delivery.arrived = params.fetch("query_arrived", false)
 
     if the_delivery.valid?
       the_delivery.save
