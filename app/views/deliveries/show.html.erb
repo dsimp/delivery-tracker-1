@@ -20,10 +20,10 @@
 
     <dl>
       <dt>
-        Supposed to arrive on
+        User
       </dt>
       <dd>
-        <%= @the_delivery.supposed_to_arrive_on %>
+        <%= @the_delivery.user_id %>
       </dd>
 
       <dt>
@@ -34,13 +34,6 @@
       </dd>
 
       <dt>
-        Arrival date
-      </dt>
-      <dd>
-        <%= @the_delivery.arrival_date %>
-      </dd>
-
-      <dt>
         Details
       </dt>
       <dd>
@@ -48,10 +41,10 @@
       </dd>
 
       <dt>
-        User
+        Supposed to arrive on
       </dt>
       <dd>
-        <%= @the_delivery.user_id %>
+        <%= @the_delivery.supposed_to_arrive_on %>
       </dd>
 
       <dt>
@@ -89,11 +82,11 @@
 
     <form action="/modify_delivery/<%= @the_delivery.id %>"  method="post" >
       <div>
-        <label for="supposed_to_arrive_on_box">
-          Supposed to arrive on
+        <label for="user_id_box">
+          User
         </label>
 
-        <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on" value="<%= @the_delivery.supposed_to_arrive_on %>">
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_delivery.user_id %>">
       </div>
 
       <div>
@@ -105,27 +98,19 @@
       </div>
 
       <div>
-        <label for="arrival_date_box">
-          Arrival date
-        </label>
-
-        <input type="date" id="arrival_date_box" name="query_arrival_date" value="<%= @the_delivery.arrival_date %>">
-      </div>
-
-      <div>
         <label for="details_box">
           Details
         </label>
 
-        <input type="text" id="details_box" name="query_details" value="<%= @the_delivery.details %>">
+        <textarea id="details_box" name="query_details"><%= @the_delivery.details %></textarea>
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
+        <label for="supposed_to_arrive_on_box">
+          Supposed to arrive on
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_delivery.user_id %>">
+        <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on" value="<%= @the_delivery.supposed_to_arrive_on %>">
       </div>
 
       <div>
@@ -142,5 +127,3 @@
     </form>
   </div>
 </div>
-
-<hr>
