@@ -1,4 +1,6 @@
 class DeliveriesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     # if current_user != nil
     matching_deliveries = Delivery.where({ :user_id => current_user.id })
